@@ -1,0 +1,75 @@
+<md-dialog aria-label="upload">
+    <form ng-cloak>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+
+                <!--left panel-->
+                <div class="left-panel">
+                    <div class="left-panel-inner">
+                        <!--agreement-->
+                        <div class="agreement">
+                            <div class="left-agreement">
+                                <div class="switch"><!-- Switch -->
+                                    <label>
+                                        Off
+                                        <input type="checkbox" ng-change="unlock()" ng-model="agreement">
+                                        <span class="lever"></span>
+                                        On
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="right-agreement">
+                                <p>
+                                    En téléchargeant une photo, vous confirmez qu'elle ne viole aucune loi applicable ou les droits de tiers.
+                                </p>
+                            </div>
+                        </div>
+                        <!--buttons-->
+                        <div class="dowload">
+                            <label id="file-label" for="file" class="waves-effect waves-light btn-large" style="width: 100%;" ng-disabled="!agreement">
+                                <i class="fas fa-file-download"></i>
+                                Téléchargement
+                            </label>
+                            <input id="file" type="file" multiple="multiple" accept=".svg, .eps,.ai,.cdr,.png,.jpg,.jpeg,.gif,.bmp" file-on-change="previewFile" ng-model="file"
+                                   class="input-file" style="width: 100%;">
+                        </div>
+                        <!--drag-and-drop image-->
+                        <!--<div class="drag-and-drop">-->
+                            <!--<div id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">-->
+                                <!--<p style="font-weight: 200; font-size: 50px; text-align: center;">-->
+                                    <!--<i class="far fa-image"></i>-->
+                                <!--</p>-->
+                                <!--<p>-->
+                                    <!--Drag one or more files to this Drop Zone ...-->
+                                <!--</p>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+                <!--right panel-->
+                <div class="right-panel">
+                    <div class="right-panel-inner">
+                        <div class="uploaded-images">
+                            <ul id="upload-container" class="uploaded-images-container">
+                                <li ng-repeat="image in images" style="width: 134px; height: 134px;">
+                                    <a href="#" ng-click="answer(image)">
+                                        <img src="/img/{{image.name}}" alt="image" height="134" ng-model="image.name">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button ng-click="cancel()">
+                Cancel
+            </md-button>
+            <md-button ng-click="answer(name)">
+                Ok
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

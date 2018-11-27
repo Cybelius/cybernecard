@@ -1,0 +1,30 @@
+{
+  "id": 2,
+  "name": "PARAPLUIE STANDARD",
+  "code_article": "FP4155",
+  "images": [
+    {
+      "id": 1,
+      "url": "img/p1.png",
+      "view": "front",
+      "zone": {
+        "x": 205,
+        "y": 200,
+        "width": 140,
+        "height": 86
+      }
+    },
+    {
+      "id": 2,
+      "url": "img/p2.png",
+      "view": "back",
+      "zone": {
+        "x": 205,
+        "y": 200,
+        "width": 140,
+        "height": 86
+      }
+    }
+  ],
+  "description": "Loin des circuits, ce parapluie standard à l'allure sportive vous rappelle que vous êtes un pilote ! Sa poignée argentée mat au design de pommeau de levier de vitesse fait son effet."
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html class="no-js gt-ie8" ng-app="DesignerTool" ng-controller="DesignerController" xml:lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/1999/xhtml http://www.w3.org/MarkUp/SCHEMA/xhtml11.xsd">
+    <head>
+        <meta charset="UTF-8">
+        <title>Object Designer Tool</title>
+
+        <link data-require="angular-material@1.1.0" data-semver="1.1.0" rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/1.1.10/angular-material.min.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+              integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/libs/materialize/css/materialize.css">
+        <link rel="stylesheet" href="assets/libs/angular-growl-v2-0.7.5/angular-growl.min.css"/>
+        <link rel="stylesheet" href="assets/css/designer.css"/>
+        <link rel="stylesheet" href="assets/css/upload.css"/>
+
+
+        <!--Let browser know website is optimized for mobile-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <div growl="growl"></div>
+        <div class="tool-window">
+            <div class="window">
+                <!--<svg class="measurer" style="visibility: hidden"></svg>-->
+                <!--module object designer tool-->
+                <div class="module-create module-loader">
+                    <div id="main">
+                        <!--sidebar-->
+                        <div id="sidebar">
+                            <div>
+                                <ul>
+                                    <li class="product-type">
+                                        <a href="#products-modal" class="waves-effect waves-light modal-trigger" ng-click="showProducts($event)">
+                                            <i class="fas fa-tshirt"></i>
+                                            Produits
+                                        </a>
+                                    </li>
+                                    <!--<li class="text" ng-click="showText($event)">-->
+                                        <!--<i class="fas fa-text-height"></i>-->
+                                        <!--Text-->
+                                    <!--</li>-->
+                                    <li class="upload">
+                                        <a href="#upload-modal" class="waves-effect waves-light modal-trigger" ng-click="showUpload($event)">
+                                            <i class="fas fa-upload"></i>
+                                            Importer
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--main window-->
+                        <div name="main-window">
+                            <form name="svgForm" ng-submit="svgFormSave()">
+                                <div class="designer-module">
+                                    <div id="creator">
+                                        <div id="designer-wrapper">
+                                            <div id="designer" class="product-viewer" style="width: 560px; height: 560px;">
+                                                <svg ng-if="product" id="product-view-id" focused="true" width="560" height="560" version="1.1"
+                                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="product-view">
+                                                    <g transform="translate(0,0) scale(1,1)" id="product-type-view-id" class="product-type-view" inverseZoom="1">
+                                                        <image xlink:href="{{product.images[lastIndex].url}}" x="0" y="0" width="100%"></image>
+                                                    </g>
+                                                </svg>
+                                            </div>
+
+                                            <div class="product-selector">
+                                                <ul class="product-view-selector">
+                                                    <li ng-repeat="img in product.images" class="{{img.view}}">
+                                                        <div class="product-thumbnail" style="width: 60px; height: 60px;">
+                                                            <a href="#" ng-click="selectImage($index)">
+                                                                <svg focused="true" width="50" height="50" version="1.1"
+                                                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="product-view">
+                                                                    <image xlink:href="{{img.url}}" x="0" y="0" width="50" height="50"></image>
+                                                                </svg>
+                                                            </a>
+                                                        </div>
+                                                        <div class="view-name">
+                                                            <p>{{img.view}}</p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div> <!--designer wrapper end-->
+
+                                        <div id="right-column">
+                                            <div class="description-wrapper">
+                                                <div class="description">
+                                                    <h3>{{product.name}}</h3>
+                                                    <p>
+                                                        Code article : <strong>{{product.code_article}}</strong>
+                                                    </p>
+                                                    <p style="padding-top: 8px;" ng-model="product.description">
+                                                        Description : {{product.description}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div> <!--right column end-->
+                                    </div> <!--creator end-->
+                                    <div class="add-to-cart">
+                                        <button type="submit" class="waves-effect waves-light btn-large add-to-cart-button">Calculer le prix</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div> <!--end of module-->
+            </div>
+        </div>
+
+        <!--<ng-include src="'views/products-modal.html?' + Math.random()"></ng-include>-->
+        <!--<ng-include src="'views/upload-modal.html?' + Math.random()"></ng-include>-->
+
+        <script src="assets/js/jquery-3.1.1.min.js"></script>
+        <script src="assets/js/jquery-ui.js"></script>
+        <script src="assets/libs/log4javascript-1.4.13/log4javascript.js"></script>
+        <script src="assets/libs/localForage-1.4.2/dist/localforage.min.js"></script>
+
+        <!--angularjs-->
+        <script src="assets/libs/angular-1.6.9/angular.min.js"></script>
+        <script src="assets/libs/angular-1.6.9/angular-animate.min.js"></script>
+        <script src="assets/libs/angular-1.6.9/angular-cookies.min.js"></script>
+        <script src="assets/libs/angular-1.6.9/angular-route.min.js"></script>
+        <script src="assets/libs/angular-1.6.9/angular-sanitize.min.js"></script>
+        <script src="assets/libs/angular-1.6.9/angular-touch.min.js"></script>
+        <script src="assets/libs/angular-1.6.9/angular-aria.min.js"></script>
+        <script src="assets/libs/angular-growl-v2-0.7.5/angular-growl.min.js"></script>
+        <script src="assets/libs/angular-localForage-1.2.5/dist/angular-localForage.js"></script>
+
+        <!--material-->
+        <script src="assets/libs/materialize/js/materialize.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.10/angular-material.min.js"></script>
+        <script src="assets/js/d3.min.js"></script>
+
+        <script src="assets/designer/App.js"></script>
+        <script src="assets/designer/Constants.js"></script>
+        <script src="assets/designer/Service.js"></script>
+        <script src="assets/designer/DesignerTool.js"></script>
+        <script src="assets/designer/Products.js"></script>
+        <script src="assets/designer/Upload.js"></script>
+
+
+    </body>
+</html>

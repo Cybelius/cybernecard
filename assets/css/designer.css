@@ -1,0 +1,311 @@
+body, div, html, li, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    -webkit-tap-highlight-color: transparent;
+}
+
+h3 {
+    font-weight: 500;
+    letter-spacing: .02rem;
+    line-height: 1.2;
+    color: #333;
+    font-size: 1.125rem;
+}
+
+.tool-window {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.module-create {
+    display: flex;
+    justify-content: center;
+    background: #f2f2f2;
+}
+
+.module-loader {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#main {
+    overflow: hidden;
+    flex: 1 0 100%;
+    max-width: 1920px;
+    box-sizing: border-box;
+    display: flex;
+    position: relative;
+}
+
+/*sidebar*/
+#sidebar {
+    flex: 0 0 auto;
+    padding-top: .5rem;
+    padding-left: .5rem;
+    z-index: 1;
+    pointer-events: none;
+    width: 80px;
+    font-size: .75rem;
+    text-align: center;
+    color: #000;
+}
+
+#sidebar > div {
+    border-radius: 2px;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, .3);
+}
+
+#sidebar ul, .modal-active #sidebar {
+    pointer-events: none;
+}
+
+#sidebar ul {
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+#sidebar li {
+    cursor: pointer;
+    padding: 10px 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color .2s, background .2s;
+    position: relative;
+    background: #fff;
+    pointer-events: auto;
+}
+
+#sidebar i {
+    font-size: 1.8em;
+    display: block;
+    padding: 2px;
+    position: relative;
+    top: -2px;
+    line-height: 1;
+}
+
+#sidebar li:not(.active):hover {
+    background: #f2f2f2;
+}
+
+#sidebar ul li a {
+    color: #000;
+}
+
+/*main window*/
+#main div[name=main-window] {
+    flex: 1 0 auto;
+    position: relative;
+}
+
+#creator {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    transform: translate(0);
+    transition: transform .2s ease-in-out;
+}
+
+#designer-wrapper, .product-selector {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+#designer-wrapper {
+    flex-direction: column;
+    flex: 1 1;
+    height: 100%;
+    z-index: 0;
+}
+
+#designer {
+    width: 80vh;
+    max-width: calc(100vw - 380px - 70px - 2em);
+    align-self: center;
+    position: relative;
+    min-width: 400px;
+}
+
+/*#designer > svg, #designer {*/
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*top: 0;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+/*}*/
+
+#designer > svg {
+    z-index: 1;
+    overflow: visible;
+}
+
+.product-selector {
+    flex-direction: row;
+    z-index: 1;
+}
+
+.product-view-selector {
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    pointer-events: none;
+}
+
+.product-view-selector li {
+    transition: background .2s;
+}
+
+.product-thumbnail {
+    pointer-events: auto;
+    margin: .25em;
+    border: 1px solid #d3d3d3;
+    background: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    position: relative;
+    color: gray;
+}
+
+.product-thumbnail.active {
+    border-color: #00b2a5;
+}
+
+#right-column {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    z-index: 0;
+    width: 380px;
+    padding: 0 1em;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+.add-to-cart {
+    position: absolute;
+    width: 350px;
+    bottom: 0;
+    right: 0;
+    padding-right: 30px;
+    text-align: center;
+    margin: 0 0 30px 0;
+}
+
+.add-to-cart-button {
+    width: 100%;
+}
+
+.description-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    position: relative;
+    min-height: 0;
+    padding-top: .5rem;
+}
+
+.description {
+    background: #fff;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,.3);
+    padding: 20px;
+    overflow: hidden;
+}
+
+/*modal*/
+#products-modal {
+    /*flex: 1 0 auto;*/
+    /*min-height: 100px;*/
+    /*min-width: 100px;*/
+    /*margin-top: 10px;*/
+    /*margin-left: 5px;*/
+    /*display: flex;*/
+    /*flex-direction: column;*/
+}
+
+.list {
+    flex: 1 0 auto;
+    margin: 0;
+}
+
+#products-modal .list {
+    position: relative;
+    color: #000;
+}
+
+.product-list-container {
+    position: relative;
+    margin: 0px;
+    /*height: 6875px;*/
+}
+
+.product-list-container li {
+    display: inline-block;
+}
+
+.product-item {
+    width: 216px;
+    height: 260px;
+    left: 5px;
+    top: 0px;
+    margin: 5px;
+}
+
+.product-image {
+    width: 100% !important;
+    background: #f2f2f2;
+    height: 200px;
+    display: inline-block;
+    transition: background .15s ease-in-out;
+}
+
+.product-label {
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    color: #8e8e8e;
+    font-size: 13px;
+    text-align: left;
+    flex: 1 0 auto;
+}
+
+/* manage visibilities */
+g.rectangle text {
+    visibility: hidden;
+}
+
+g.rectangle text.active {
+    visibility: visible;
+}
+
+rect:not([fill]) {
+    fill: none;
+}
+
+#draggable {
+    cursor: pointer;
+}
+
+g.circles circle:hover {
+    cursor: move;
+}
+
+g.configuration-delete {
+    cursor: pointer;
+}

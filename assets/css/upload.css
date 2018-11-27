@@ -1,0 +1,82 @@
+md-dialog {
+    width: 70%;
+    /*display: flex;*/
+}
+.md-dialog-content {
+    height: calc(100% - 56px);
+    display: flex;
+}
+.left-panel {
+    width: 325px;
+    display: flex;
+    flex: 0 0 auto;
+    border-right: 1px solid #bfbfbf;
+    box-sizing: border-box;
+    height: 100%;
+}
+.right-panel {
+    flex: 1 1 auto;
+    position: relative;
+}
+.left-panel-inner {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    width: 325px;
+    padding: 1em;
+}
+.right-panel-inner {
+    padding: 20px;
+    height: 100%;
+}
+.agreement {
+    flex: 1 0 auto;
+    font-weight: 400;
+    letter-spacing: .02rem;
+    line-height: 1.5;
+    color: #333;
+    font-size: .75rem;
+    display: flex;
+    margin-bottom: 20px;
+}
+.drag-and-drop {
+    height: 100%;
+    /*margin-bottom: 20px;*/
+}
+#drop_zone {
+    margin: 1em 0 0;
+    /*flex: 1 0 auto;*/
+    padding: 1em;
+    border: 2px dashed;
+    border-radius: 2px;
+    /*display: flex;*/
+    position: relative;
+    justify-content: center;
+    color: #8e8e8e;
+    cursor: pointer;
+    /*height: 100%;*/
+}
+.uploaded-images {
+    height: 100%;
+}
+.uploaded-images-container {
+    position: relative;
+    margin: 0px;
+    height: 149px;
+}
+.uploaded-images-container li {
+    display: inline-block;
+}
+.input-file {
+    display: none;
+}
+#upload-container li {
+    margin: 20px;
+}
+#upload-container li a {
+    display: block;
+}
+#upload-container li a img {
+    width: 100%;
+}
+

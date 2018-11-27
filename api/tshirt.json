@@ -1,0 +1,52 @@
+{
+  "id": 1,
+  "name": "T-SHIRT STRETCH HOMME",
+  "code_article": "JN055",
+  "images": [
+    {
+      "id": 1,
+      "url": "img/1.png",
+      "view": "front",
+      "zone": {
+        "x": 157,
+        "y": 69,
+        "width": 250,
+        "height": 450
+      }
+    },
+    {
+      "id": 2,
+      "url": "img/2.png",
+      "view": "back",
+      "zone": {
+        "x": 157,
+        "y": 69,
+        "width": 250,
+        "height": 450
+      }
+    },
+    {
+      "id": 3,
+      "url": "img/3.png",
+      "view": "right",
+      "zone": {
+        "x": 166,
+        "y": 327,
+        "width": 160,
+        "height": 130
+      }
+    },
+    {
+      "id": 4,
+      "url": "img/4.png",
+      "view": "left",
+      "zone": {
+        "x": 236,
+        "y": 346,
+        "width": 160,
+        "height": 130
+      }
+    }
+  ],
+  "description": "Basique, le tee-shirt stretch se porte tous les jours ! Elégant avec son col rond et sa coupe près du corps, il devient une pièce indispensable à chaque saison. Fait en mélange d'élasthanne, il est très doux."
+}

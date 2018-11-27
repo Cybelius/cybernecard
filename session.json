@@ -1,0 +1,8 @@
+{
+  "user": {
+    "authenticated": true,
+    "email": "cybernecard@cybernecard.fr",
+    "agreement": true,
+    "role": "user"
+  }
+}
