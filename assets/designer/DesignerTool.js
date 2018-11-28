@@ -270,7 +270,7 @@ controllers.controller('DesignerController', ['$location', '$rootScope', '$route
             logger.debug("removeZones");
 
             let svg = d3.select("g#product-type-view-id");
-            if ($scope.isZoneCreated) {
+            if ($scope.isZoneCreated || $('g.print-area')) {
                 svg.selectAll("rect").remove();
                 svg.selectAll("g.print-area").remove();
                 $scope.isZoneCreated = false;
