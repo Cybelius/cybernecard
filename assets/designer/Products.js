@@ -18,12 +18,6 @@ controllers.controller('ProductsController', ['$scope', '$mdDialog', 'DesignerTo
         $scope.items = [];
 
         /**
-         *
-         * @type {Array}
-         */
-        $scope.images = [];
-
-        /**
          */
         $scope.init = function () {
             logger.debug('init');
@@ -41,7 +35,6 @@ controllers.controller('ProductsController', ['$scope', '$mdDialog', 'DesignerTo
 
             DesignerToolService.getJsonFiles().then(function (data) {
                 if (data) {
-                    $scope.images.push(data.images);
                     $scope.items = data;
                 } else {
                     logger.error('getFiles: ' + JSON.stringify(data));
@@ -57,18 +50,28 @@ controllers.controller('ProductsController', ['$scope', '$mdDialog', 'DesignerTo
         // modal main methods
         // ////////////////////////////////////////
 
+        /**
+         *
+         */
         $scope.hide = function() {
             logger.debug('modal hide');
 
             $mdDialog.hide();
         };
 
+        /**
+         *
+         */
         $scope.cancel = function() {
             logger.debug('modal cancel');
 
             $mdDialog.cancel();
         };
 
+        /**
+         *
+         * @param answer
+         */
         $scope.answer = function(answer) {
             logger.debug('modal answer');
 
@@ -79,8 +82,5 @@ controllers.controller('ProductsController', ['$scope', '$mdDialog', 'DesignerTo
             }
         };
 
-        // ////////////////////////////////////////
-        //
-        // ////////////////////////////////////////
     }
 ]);

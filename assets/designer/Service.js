@@ -98,11 +98,9 @@ designertool.factory('DesignerToolService', [
                     dataType: 'json',
                     contentType: 'application/json'
                 }).then(function successCallback(response) {
-
                     let items = [];
                     let arr = [];
                     arr = response.data;
-
                     for (let i = 0; i < arr.length; i++) {
                         let item = response.data[i];
                         $http({
@@ -111,17 +109,14 @@ designertool.factory('DesignerToolService', [
                             dataType: 'json',
                             contentType: 'application/json'
                         }).then(function successCallback(response) {
-
                             items.push(response.data);
                             deferred.resolve(items);
-
                         }, function errorCallback(response) {
                             logger.error('getJsonFiles: ' + JSON.stringify(response.data));
                         });
                     }
                 }, function errorCallback(response) {
                     logger.error('getJsonFiles: ' + JSON.stringify(response.data));
-
                 });
 
                 return deferred.promise;

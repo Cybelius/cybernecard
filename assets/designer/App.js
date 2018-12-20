@@ -36,7 +36,7 @@ designertool.config([
         // $compileProvider.debugInfoEnabled(configuration.angular.compileProvider.debugInfoEnabled);
 
         $localForageProvider.config({
-            name: 'myApp'
+            name: 'designertool'
         });
 
         $routeProvider.when('/designer', {

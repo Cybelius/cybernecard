@@ -35,6 +35,12 @@ controllers.controller('DesignerController', ['$location', '$rootScope', '$route
         $scope.isHidden = false;
 
         /**
+         *
+         * @type {boolean}
+         */
+        $scope.isValid = true;
+
+        /**
          * session user object
          * @type {{}}
          */
@@ -57,6 +63,45 @@ controllers.controller('DesignerController', ['$location', '$rootScope', '$route
          * @type {{}}
          */
         $scope.imageForSelect = {};
+
+        /**
+         * object errors
+         * @type {*[]}
+         */
+        $scope.errors = [];
+
+        /**
+         *
+         * @type {Array}
+         */
+        $scope.imageSizeByFrame = [];
+
+        /**
+         *
+         * @type {Array}
+         */
+        $scope.markers = [];
+
+        /**
+         *
+         */
+        $scope.selectedMarker;
+
+        /**
+         *
+         */
+        $scope.selectedColorName = "";
+
+        /**
+         *
+         * @type {number}
+         */
+        $scope.selectedImageIndex = 0;
+
+        /**
+         *
+         */
+        $scope.selectedPriceObj;
 
         /**
          * g container
@@ -90,6 +135,10 @@ controllers.controller('DesignerController', ['$location', '$rootScope', '$route
          */
         var currentIndex = 0;
 
+        /**
+         *
+         * @type {Array}
+         */
         var arr = [];
 
         /**
@@ -114,8 +163,19 @@ controllers.controller('DesignerController', ['$location', '$rootScope', '$route
                 $(this).addClass('active');
             });
 
+            accordion();
+
             $('#designer').on("click", rectHidden);
         };
+
+        /**
+         * watch if the errors array change and apply show error if needed
+         */
+        $scope.$watchCollection('errors', function () {
+            if ($scope.errors != null) {
+                showErrorClass();
+            }
+        });
 
         /**
          * initializeProduct the first product
@@ -124,13 +184,13 @@ controllers.controller('DesignerController', ['$location', '$rootScope', '$route
             logger.debug('initializeProduct');
 
             DesignerToolService.getFirstProduct().then(function (data) {
-
                 $scope.product = data;
+                $scope.selectedMarker = $scope.product.markers[0].id;
 
                 initializeArrayResponse();
 
             }, function (data) {
-                logger.error("data.message.join('<br>')");
+                logger.error('initializeProduct: ' + JSON.stringify(data));
             });
         };
 
@@ -156,7 +216,11 @@ controllers.controller('DesignerController', ['$location', '$rootScope', '$route
             } else {
                 if (arr.length > 1) {
                     for (var i = 0; i < arr.length; i++) {
-                        if (arr[i].id == $index) {
+                        if (typeof arr[i] === 'undefined') {
+                            continue;
+                        }
+
+                        if (arr[i].id === $index) {
                             let size = i;
                             updateArrPosition(size)
                         }
@@ -196,9 +260,31 @@ controllers.controller('DesignerController', ['$location', '$rootScope', '$route
 
         /**
          *
+         * @param color
+         */
+        $scope.selectedColor = function (color) {
+            logger.debug("selectedColor: " + JSON.stringify(color));
+
+            $scope.selectedImageIndex = color.id;
+            $scope.selectedColorName = color.name;
+
+        };
+
+        /**
+         *
+         * @param price
+         */
+        $scope.selectedPrice = function (price) {
+            logger.debug("selectedPrice: " + JSON.stringify(price));
+
+            $scope.selectedPriceObj = price;
+        };
+
+        /**
+         *
          */
         $scope.createResponseObject = function (index) {
-            logger.debug('createResponseObject');
+            logger.debug('createResponseObject at index: ' + index);
 
             $scope.imageForSelect = {
                 'name': file.name,
@@ -213,7 +299,10 @@ controllers.controller('DesignerController', ['$location', '$rootScope', '$route
             $scope.response[index] = {
                 'id': $scope.lastIndex,
                 'product': $scope.product.name,
-                'index_image': $scope.product.images[$scope.lastIndex].id,
+                'price': $scope.selectedPriceObj,
+                'marker' : $scope.selectedMarker,
+                'color': $scope.product.colors[$scope.selectedImageIndex].name,
+                'index_image': $scope.product.colors[$scope.selectedImageIndex].images[$scope.lastIndex].id,
                 'images': $scope.imagesSelectedForProductIndex
             };
 
@@ -254,10 +343,10 @@ controllers.controller('DesignerController', ['$location', '$rootScope', '$route
                 .style("fill", "transparent")
                 .attr("stroke", "black")
                 .attr("stroke-width", 2)
-                .attr("x", $scope.product.images[currentIndex].zone.x)
-                .attr("y", $scope.product.images[currentIndex].zone.y)
-                .attr("width", $scope.product.images[currentIndex].zone.width)
-                .attr("height", $scope.product.images[currentIndex].zone.height);
+                .attr("x", $scope.product.colors[$scope.selectedImageIndex].images[currentIndex].zone.x)
+                .attr("y", $scope.product.colors[$scope.selectedImageIndex].images[currentIndex].zone.y)
+                .attr("width", $scope.product.colors[$scope.selectedImageIndex].images[currentIndex].zone.width)
+                .attr("height", $scope.product.colors[$scope.selectedImageIndex].images[currentIndex].zone.height);
 
             update();
 
@@ -294,7 +383,10 @@ controllers.controller('DesignerController', ['$location', '$rootScope', '$route
                 multiple: true
             }).then(function (answer) {
                 $scope.product = answer;
+                // console.log($scope.product);
+                $scope.selectedMarker = $scope.product.markers[0].id;
                 initializeArrayResponse();
+                removeErrorMessageClass();
                 $scope.removeZones();
                 $scope.isZoneCreated = false;
             }, function () {
@@ -342,6 +434,8 @@ controllers.controller('DesignerController', ['$location', '$rootScope', '$route
             M.toast({html: JSON.stringify($scope.response)});
 
             //TODO: if success -> redirect to cybernecard
+
+            console.log($scope.errors);
         };
 
         $scope.init();
@@ -371,6 +465,27 @@ controllers.controller('DesignerController', ['$location', '$rootScope', '$route
         // private methods
         // //////////////////////////////////////
 
+        function accordion() {
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                    /* Toggle between adding and removing the "active" class,
+                    to highlight the button that controls the panel */
+                    this.classList.toggle("active");
+
+                    /* Toggle between hiding and showing the active panel */
+                    var panel = this.nextElementSibling;
+                    if (panel.style.display === "block") {
+                        panel.style.display = "none";
+                    } else {
+                        panel.style.display = "block";
+                    }
+                });
+            }
+        }
+
         /**
          * update the arr position
          * @param index
@@ -391,8 +506,9 @@ controllers.controller('DesignerController', ['$location', '$rootScope', '$route
          * initialize array of object response
          */
         function initializeArrayResponse() {
-            let length = $scope.product.images.length;
-            $scope.response = Array.apply(null, Array(length)).map(function () {});
+            let length = $scope.product.colors[0].images.length;
+            $scope.response = Array.apply(null, Array(length)).map(function () {
+            });
         }
 
         /**
@@ -536,8 +652,8 @@ controllers.controller('DesignerController', ['$location', '$rootScope', '$route
             d.x = dragX;
             d.y = dragY;
 
-            let OFFSET_X = d.x - $scope.product.images[$scope.lastIndex].zone.x;
-            let OFFSET_Y = d.y - $scope.product.images[$scope.lastIndex].zone.y;
+            let OFFSET_X = d.x - $scope.product.colors[$scope.selectedImageIndex].images[$scope.lastIndex].zone.x;
+            let OFFSET_Y = d.y - $scope.product.colors[$scope.selectedImageIndex].images[$scope.lastIndex].zone.y;
 
             let text = "X: " + OFFSET_X + " mm, Y: " + OFFSET_Y + " mm";
             gCont.select("text").text(text);
@@ -559,38 +675,24 @@ controllers.controller('DesignerController', ['$location', '$rootScope', '$route
         function updatePosition() {
             logger.debug('updatePosition');
 
-            if ($scope.lastIndex < arr.length) {
-                arr[$scope.lastIndex] =  {
-                    id: position[0].id,
-                    x: position[0].x,
-                    y: position[0].y,
-                    width: position[0].width,
-                    height: position[0].height
-                };
-            } else {
-                for (var i = 0; i < arr.length; i++) {
-                    if (arr[i].id == currentIndex) {
-                        arr[i] = {
-                            id: position[0].id,
-                            x: position[0].x,
-                            y: position[0].y,
-                            width: position[0].width,
-                            height: position[0].height
-                        };
-                    }
-                }
-            }
+            arr[$scope.lastIndex] = {
+                id: $scope.lastIndex,
+                x: position[0].x,
+                y: position[0].y,
+                width: position[0].width,
+                height: position[0].height
+            };
 
             for (var i = 0; i < $scope.response.length; i++) {
                 if (typeof $scope.response[i] === 'undefined') {
                     continue;
                 }
-
                 var responseId = $scope.response[i].id;
-
                 for (var j = 0; j < arr.length; j++) {
+                    if (typeof arr[j] == 'undefined') {
+                        continue;
+                    }
                     var arrId = arr[j].id;
-
                     if (responseId == arrId) {
                         $scope.response[i].images[0] = {
                             name: $scope.response[i].images[0].name,
@@ -601,10 +703,9 @@ controllers.controller('DesignerController', ['$location', '$rootScope', '$route
                             image_height: arr[j].height
                         }
                     }
-
                 }
-
             }
+            //console.log(arr);
         }
 
         /**
@@ -618,6 +719,96 @@ controllers.controller('DesignerController', ['$location', '$rootScope', '$route
             d3.select('.print-area').remove();
 
             $scope.response[currentIndex] = undefined;
+        }
+
+        /**
+         * construct the message error to display in html element
+         */
+        function showErrorMessageClass() {
+            let parent = $('#designer');
+            if (parent.find('.error-message').length > 0) {
+                //do nothing
+            } else {
+                let errorMessageDiv = document.createElement('div');
+                errorMessageDiv.className = 'error-message';
+                let message = document.createElement('p');
+                message.textContent = "! L'image sélectionnée est hors cadre d'impression";
+                errorMessageDiv.appendChild(message);
+                parent.append(errorMessageDiv);
+            }
+        }
+
+        /**
+         * remove the error-message for the current frame
+         */
+        function removeErrorMessageClass() {
+            let parent = $('#designer');
+
+            if (parent.find('.error-message').length > 0) {
+                let messageErrorDiv = parent.find('div.error-message');
+                messageErrorDiv.remove();
+            }
+        }
+
+        /**
+         *
+         */
+        function showErrorClass() {
+            $('.product-view-selector li').each(function (i) {
+                for (var j = 0; j < $scope.errors.length; j++) {
+                    if (typeof $scope.errors[j] == 'undefined') {
+                        continue;
+                    } else {
+                        if (i == $scope.errors[j].frame) {
+                            showErrorMessageClass();
+                            $(this).addClass("error");
+                            $(this).find('.product-thumbnail').css("border-color", "#D9385A");
+                        }
+
+                        if ($scope.errors[j].hasError == true) {
+                            $('.add-to-cart-button').attr("disabled", "true");
+                        }
+                    }
+                }
+            });
+        }
+
+        /**
+         * showing errors and construct the errors array
+         */
+        function showWarning() {
+            let rect = d3.select('.bg');
+            rect.attr("stroke", "#D9385A")
+                .attr("stroke-width", 3);
+
+            $('.add-to-cart-button').attr("disabled", "true");
+
+            //update the currentindex with an error
+            $scope.errors[currentIndex] = {
+                frame: currentIndex, hasError: true
+            };
+
+            showErrorClass();
+        }
+
+        /**
+         *
+         */
+        function hideWarning() {
+            let rect = d3.select('.bg');
+            rect.attr("stroke", "black")
+                .attr("stroke-width", 2);
+
+            $('.product-view-selector li').each(function (i) {
+                if (i == currentIndex) {
+                    // console.log($(this));
+                    $(this).removeClass("error");
+                    $(this).find('.product-thumbnail').css("border-color", "#d3d3d3");
+                    $scope.errors.splice(currentIndex);
+                }
+            });
+
+            removeErrorMessageClass();
         }
 
         /**
@@ -789,7 +980,27 @@ controllers.controller('DesignerController', ['$location', '$rootScope', '$route
                 });
 
             $scope.isZoneCreated = true;
-        }
 
+            /**
+             *
+             * @type {{width: *, height: *}}
+             */
+            $scope.imageSizeByFrame[currentIndex] = {
+                width: position[0].width,
+                height: position[0].height
+            };
+
+            if (position[0].x - $scope.product.colors[$scope.selectedImageIndex].images[currentIndex].zone.x < 0 ||
+                position[0].y - $scope.product.colors[$scope.selectedImageIndex].images[currentIndex].zone.y < 0 ||
+                (position[0].x - $scope.product.colors[$scope.selectedImageIndex].images[currentIndex].zone.x + position[0].width) > $scope.product.colors[$scope.selectedImageIndex].images[currentIndex].zone.width ||
+                (position[0].y - $scope.product.colors[$scope.selectedImageIndex].images[currentIndex].zone.y + position[0].height) > $scope.product.colors[$scope.selectedImageIndex].images[currentIndex].zone.height) {
+                showWarning();
+            } else {
+                if (typeof $scope.errors === 'undefined' || $scope.errors.length == 0) {
+                    $('.add-to-cart-button').removeAttr("disabled");
+                }
+                hideWarning();
+            }
+        }
     }
 ]);

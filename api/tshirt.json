@@ -2,51 +2,372 @@
   "id": 1,
   "name": "T-SHIRT STRETCH HOMME",
   "code_article": "JN055",
-  "images": [
+  "description": "Basique, le tee-shirt stretch se porte tous les jours ! Elégant avec son col rond et sa coupe près du corps, il devient une pièce indispensable à chaque saison. Fait en mélange d'élasthanne, il est très doux.",
+  "colors": [
+    {
+      "id": 0,
+      "name": "blanc",
+      "hex": "#ffffff",
+      "images": [
+        {
+          "id": 1,
+          "url": "img/1-white.png",
+          "view": "front",
+          "zone": {
+            "x": 157,
+            "y": 69,
+            "width": 250,
+            "height": 450
+          }
+        },
+        {
+          "id": 2,
+          "url": "img/2-white.png",
+          "view": "back",
+          "zone": {
+            "x": 157,
+            "y": 69,
+            "width": 250,
+            "height": 450
+          }
+        },
+        {
+          "id": 3,
+          "url": "img/3-white.png",
+          "view": "right",
+          "zone": {
+            "x": 166,
+            "y": 327,
+            "width": 160,
+            "height": 130
+          }
+        },
+        {
+          "id": 4,
+          "url": "img/4-white.png",
+          "view": "left",
+          "zone": {
+            "x": 236,
+            "y": 346,
+            "width": 160,
+            "height": 130
+          }
+        }
+      ]
+    },
     {
       "id": 1,
-      "url": "img/1.png",
-      "view": "front",
-      "zone": {
-        "x": 157,
-        "y": 69,
-        "width": 250,
-        "height": 450
-      }
+      "name": "bleu",
+      "hex": "#000BFF",
+      "images": [
+        {
+          "id": 1,
+          "url": "img/1-blue.png",
+          "view": "front",
+          "zone": {
+            "x": 157,
+            "y": 69,
+            "width": 250,
+            "height": 450
+          }
+        },
+        {
+          "id": 2,
+          "url": "img/2-blue.png",
+          "view": "back",
+          "zone": {
+            "x": 157,
+            "y": 69,
+            "width": 250,
+            "height": 450
+          }
+        },
+        {
+          "id": 3,
+          "url": "img/3-blue.png",
+          "view": "right",
+          "zone": {
+            "x": 166,
+            "y": 327,
+            "width": 160,
+            "height": 130
+          }
+        },
+        {
+          "id": 4,
+          "url": "img/4-blue.png",
+          "view": "left",
+          "zone": {
+            "x": 236,
+            "y": 346,
+            "width": 160,
+            "height": 130
+          }
+        }
+      ]
     },
     {
       "id": 2,
-      "url": "img/2.png",
-      "view": "back",
-      "zone": {
-        "x": 157,
-        "y": 69,
-        "width": 250,
-        "height": 450
-      }
+      "name": "noir",
+      "hex": "#000000",
+      "images": [
+        {
+          "id": 1,
+          "url": "img/1-black.png",
+          "view": "front",
+          "zone": {
+            "x": 157,
+            "y": 69,
+            "width": 250,
+            "height": 450
+          }
+        },
+        {
+          "id": 2,
+          "url": "img/2-black.png",
+          "view": "back",
+          "zone": {
+            "x": 157,
+            "y": 69,
+            "width": 250,
+            "height": 450
+          }
+        },
+        {
+          "id": 3,
+          "url": "img/3-black.png",
+          "view": "right",
+          "zone": {
+            "x": 166,
+            "y": 327,
+            "width": 160,
+            "height": 130
+          }
+        },
+        {
+          "id": 4,
+          "url": "img/4-black.png",
+          "view": "left",
+          "zone": {
+            "x": 236,
+            "y": 346,
+            "width": 160,
+            "height": 130
+          }
+        }
+      ]
     },
     {
       "id": 3,
-      "url": "img/3.png",
-      "view": "right",
-      "zone": {
-        "x": 166,
-        "y": 327,
-        "width": 160,
-        "height": 130
-      }
+      "name": "rouge",
+      "hex": "#FF0000",
+      "images": [
+        {
+          "id": 1,
+          "url": "img/1-red.png",
+          "view": "front",
+          "zone": {
+            "x": 157,
+            "y": 69,
+            "width": 250,
+            "height": 450
+          }
+        },
+        {
+          "id": 2,
+          "url": "img/2-red.png",
+          "view": "back",
+          "zone": {
+            "x": 157,
+            "y": 69,
+            "width": 250,
+            "height": 450
+          }
+        },
+        {
+          "id": 3,
+          "url": "img/3-red.png",
+          "view": "right",
+          "zone": {
+            "x": 166,
+            "y": 327,
+            "width": 160,
+            "height": 130
+          }
+        },
+        {
+          "id": 4,
+          "url": "img/4-red.png",
+          "view": "left",
+          "zone": {
+            "x": 236,
+            "y": 346,
+            "width": 160,
+            "height": 130
+          }
+        }
+      ]
     },
     {
       "id": 4,
-      "url": "img/4.png",
-      "view": "left",
-      "zone": {
-        "x": 236,
-        "y": 346,
-        "width": 160,
-        "height": 130
-      }
+      "name": "vert",
+      "hex": "#007500",
+      "images": [
+        {
+          "id": 1,
+          "url": "img/1-green.png",
+          "view": "front",
+          "zone": {
+            "x": 157,
+            "y": 69,
+            "width": 250,
+            "height": 450
+          }
+        },
+        {
+          "id": 2,
+          "url": "img/2-green.png",
+          "view": "back",
+          "zone": {
+            "x": 157,
+            "y": 69,
+            "width": 250,
+            "height": 450
+          }
+        },
+        {
+          "id": 3,
+          "url": "img/3-green.png",
+          "view": "right",
+          "zone": {
+            "x": 166,
+            "y": 327,
+            "width": 160,
+            "height": 130
+          }
+        },
+        {
+          "id": 4,
+          "url": "img/4-green.png",
+          "view": "left",
+          "zone": {
+            "x": 236,
+            "y": 346,
+            "width": 160,
+            "height": 130
+          }
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "gris",
+      "hex": "#eeeeee",
+      "images": [
+        {
+          "id": 1,
+          "url": "img/1.png",
+          "view": "front",
+          "zone": {
+            "x": 157,
+            "y": 69,
+            "width": 250,
+            "height": 450
+          }
+        },
+        {
+          "id": 2,
+          "url": "img/2.png",
+          "view": "back",
+          "zone": {
+            "x": 157,
+            "y": 69,
+            "width": 250,
+            "height": 450
+          }
+        },
+        {
+          "id": 3,
+          "url": "img/3.png",
+          "view": "right",
+          "zone": {
+            "x": 166,
+            "y": 327,
+            "width": 160,
+            "height": 130
+          }
+        },
+        {
+          "id": 4,
+          "url": "img/4.png",
+          "view": "left",
+          "zone": {
+            "x": 236,
+            "y": 346,
+            "width": 160,
+            "height": 130
+          }
+        }
+      ]
     }
   ],
-  "description": "Basique, le tee-shirt stretch se porte tous les jours ! Elégant avec son col rond et sa coupe près du corps, il devient une pièce indispensable à chaque saison. Fait en mélange d'élasthanne, il est très doux."
+  "prices": [
+    {
+      "id": 1,
+      "nb_article": "1 article",
+      "price": 6.20
+    },
+    {
+      "id": 2,
+      "nb_article": "100 articles",
+      "price": 5.75
+    },
+    {
+      "id": 3,
+      "nb_article": "250 articles",
+      "price": 5.60
+    },
+    {
+      "id": 4,
+      "nb_article": "500 articles",
+      "price": 5.45
+    },
+    {
+      "id": 5,
+      "nb_article": "1000 articles et +",
+      "price": 5.30
+    }
+  ],
+  "markers": [
+    {
+      "id": 1,
+      "name": "Impression quadri",
+      "price_impact": 2.00
+    },
+    {
+      "id": 2,
+      "name": "Impression 1 à 4 couleurs",
+      "price_impact": 2.00
+    },
+    {
+      "id": 3,
+      "name": "Etiquette imprimée 1 couleur noire sur blanc",
+      "price_impact": 2.00
+    },
+    {
+      "id": 4,
+      "name": "Etiquette imprimée en quadri",
+      "price_impact": 2.00
+    },
+    {
+      "id": 5,
+      "name": "Broderie 1 à 6 couleurs",
+      "price_impact": 2.00
+    },
+    {
+      "id": 6,
+      "name": "Impression quadri digital",
+      "price_impact": 2.00
+    }
+  ]
 }

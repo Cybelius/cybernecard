@@ -5,8 +5,8 @@
  *
  * This source code is licensed under the CESI license.
  */
-controllers.controller('UploadController', ['$scope', '$mdDialog', '$localForage', 'DesignerToolService',
-    function ($scope, $mdDialog, $localForage, DesignerToolService) {
+controllers.controller('UploadController', ['$scope', '$mdDialog', '$localForage',
+    function ($scope, $mdDialog, $localForage) {
         let logger = log4javascript.getLogger('Upload');
 
         logger.debug('UploadController');
@@ -30,11 +30,11 @@ controllers.controller('UploadController', ['$scope', '$mdDialog', '$localForage
 
             $scope.agreement = $scope.session.user.agreement;
 
-            $localForage.iterate(function(value, key, iterationNumber) {
+            $localForage.iterate(function (value, key, iterationNumber) {
                 $scope.images.push(value);
-            }).then(function() {
+            }).then(function () {
                 logger.info('Images successfully retrieved');
-            }).catch(function(err) {
+            }).catch(function (err) {
                 logger.error(err);
             });
 
@@ -42,7 +42,7 @@ controllers.controller('UploadController', ['$scope', '$mdDialog', '$localForage
         };
 
         /**
-         * upload image form disk to div. not storing actually inside db
+         * upload image form disk to div. not storing at this point into the db
          *
          * @param event
          */
@@ -119,7 +119,6 @@ controllers.controller('UploadController', ['$scope', '$mdDialog', '$localForage
         // modal main methods
         // ////////////////////////////////////////
 
-
         /**
          *
          */
@@ -153,7 +152,8 @@ controllers.controller('UploadController', ['$scope', '$mdDialog', '$localForage
                 };
 
                 //store array of images
-                $localForage.setItem($scope.removeFileExtension(answer), file).then(function () {});
+                $localForage.setItem($scope.removeFileExtension(answer), file).then(function () {
+                });
 
                 $mdDialog.hide(answer);
             } else {
@@ -161,8 +161,5 @@ controllers.controller('UploadController', ['$scope', '$mdDialog', '$localForage
             }
         };
 
-        // ////////////////////////////////////////
-        //
-        // ////////////////////////////////////////
     }
 ]);

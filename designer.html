@@ -60,14 +60,14 @@
                                                 <svg ng-if="product" id="product-view-id" focused="true" width="560" height="560" version="1.1"
                                                      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="product-view">
                                                     <g transform="translate(0,0) scale(1,1)" id="product-type-view-id" class="product-type-view" inverseZoom="1">
-                                                        <image xlink:href="{{product.images[lastIndex].url}}" x="0" y="0" width="100%"></image>
+                                                        <image xlink:href="{{product.colors[selectedImageIndex].images[lastIndex].url}}" x="0" y="0" width="100%"></image>
                                                     </g>
                                                 </svg>
                                             </div>
 
                                             <div class="product-selector">
                                                 <ul class="product-view-selector">
-                                                    <li ng-repeat="img in product.images" class="{{img.view}}">
+                                                    <li ng-repeat="img in product.colors[selectedImageIndex].images" class="product-view {{img.view}}">
                                                         <div class="product-thumbnail" style="width: 60px; height: 60px;">
                                                             <a href="#" ng-click="selectImage($index)">
                                                                 <svg focused="true" width="50" height="50" version="1.1"
@@ -86,8 +86,9 @@
 
                                         <div id="right-column">
                                             <div class="description-wrapper">
-                                                <div class="description">
-                                                    <h3>{{product.name}}</h3>
+
+                                                <h3 class="accordion">{{product.name}}</h3>
+                                                <div class="description panel">
                                                     <p>
                                                         Code article : <strong>{{product.code_article}}</strong>
                                                     </p>
@@ -95,12 +96,76 @@
                                                         Description : {{product.description}}
                                                     </p>
                                                 </div>
+
+                                                <h3 class="accordion">Choisir une couleur</h3>
+                                                <div class="product-colors panel">
+                                                    <div class="product-colors-title">
+                                                        <p>Vous avez sélectionné : <strong>{{selectedColorName}}</strong></p>
+                                                    </div>
+                                                    <div class="product-colors-list">
+                                                        <div ng-repeat="color in product.colors" class="product-color">
+                                                            <button type="button" title="{{color.name}}" class="btn-product-color" ng-click="selectedColor(color)">
+                                                                <div style="display: flex; height: 100%">
+                                                                    <div style="background-color: {{color.hex}}; flex: 1 1 0%;"></div>
+                                                                </div>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <h3 class="accordion">Type de marquage</h3>
+                                                <div class="product-markers panel">
+                                                    <div class="product-marker-list">
+                                                        <select name="markers" id="markersList" ng-model="selectedMarker"
+                                                                ng-options="marker.id as marker.name for marker in product.markers"></select>
+                                                    </div>
+                                                </div>
+
+                                                <h3 class="accordion">Dimensions de l'image</h3>
+                                                <div class="product-image-size panel">
+                                                    <div class="product-image-size-title">
+                                                        <p>Rappel sur les dimensions de votre logo</p>
+                                                    </div>
+                                                    <div class="product-image-wrapper">
+                                                        <div class="row">
+                                                            <div ng-repeat="img in product.colors[selectedImageIndex].images">
+                                                                <div class="input-field col s4">
+                                                                    <label for="{{img.view}}">{{img.view}}</label>
+                                                                </div>
+                                                                <div class="input-field col s4">
+                                                                    <input id="width" type="text" class="validate" value="{{imageSizeByFrame[$index].width}}">
+                                                                    <label for="width">Largeur (mm)</label>
+                                                                </div>
+                                                                <div class="input-field col s4">
+                                                                    <input id="height" type="text" class="validate" value="{{imageSizeByFrame[$index].height}}">
+                                                                    <label for="height">Hauteur (mm)</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <h3 class="accordion">Prix</h3>
+                                                <div class="product-price-range panel">
+                                                    <div class="product-price-range-list">
+                                                        <div class="row">
+                                                            <div ng-repeat="price in product.prices" class="product-price col s6">
+                                                                <span>{{price.nb_article}}</span>
+                                                                <button type="button" title="{{price.id}}" class="btn-product-price" ng-click="selectedPrice(price)">
+                                                                    {{price.price | number : 2}} €
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="add-to-cart">
+                                                <button type="submit" class="waves-effect waves-light btn-large add-to-cart-button">Calculer le prix</button>
                                             </div>
                                         </div> <!--right column end-->
                                     </div> <!--creator end-->
-                                    <div class="add-to-cart">
-                                        <button type="submit" class="waves-effect waves-light btn-large add-to-cart-button">Calculer le prix</button>
-                                    </div>
+
                                 </div>
                             </form>
                         </div>
@@ -139,7 +204,6 @@
         <script src="assets/designer/DesignerTool.js"></script>
         <script src="assets/designer/Products.js"></script>
         <script src="assets/designer/Upload.js"></script>
-
 
     </body>
 </html>

@@ -2,29 +2,81 @@
   "id": 2,
   "name": "PARAPLUIE STANDARD",
   "code_article": "FP4155",
-  "images": [
+  "colors": [
+    {
+      "id": 0,
+      "name": "noir",
+      "hex": "#000000",
+      "images": [
+        {
+          "id": 1,
+          "url": "img/p1.png",
+          "view": "front",
+          "zone": {
+            "x": 205,
+            "y": 200,
+            "width": 140,
+            "height": 86
+          }
+        },
+        {
+          "id": 2,
+          "url": "img/p2.png",
+          "view": "back",
+          "zone": {
+            "x": 205,
+            "y": 200,
+            "width": 140,
+            "height": 86
+          }
+        }
+      ]
+    }
+  ],
+  "description": "Loin des circuits, ce parapluie standard à l'allure sportive vous rappelle que vous êtes un pilote ! Sa poignée argentée mat au design de pommeau de levier de vitesse fait son effet.",
+  "prices": [
     {
       "id": 1,
-      "url": "img/p1.png",
-      "view": "front",
-      "zone": {
-        "x": 205,
-        "y": 200,
-        "width": 140,
-        "height": 86
-      }
+      "nb_article": "1 article",
+      "price": "Tarif"
     },
     {
       "id": 2,
-      "url": "img/p2.png",
-      "view": "back",
-      "zone": {
-        "x": 205,
-        "y": 200,
-        "width": 140,
-        "height": 86
-      }
+      "nb_article": "96 articles",
+      "price": 5.21
+    },
+    {
+      "id": 3,
+      "nb_article": "240 articles",
+      "price": 5.21
+    },
+    {
+      "id": 4,
+      "nb_article": "624 articles",
+      "price": 5.21
+    },
+    {
+      "id": 5,
+      "nb_article": "1200 articles et +",
+      "price": 5.21
     }
   ],
-  "description": "Loin des circuits, ce parapluie standard à l'allure sportive vous rappelle que vous êtes un pilote ! Sa poignée argentée mat au design de pommeau de levier de vitesse fait son effet."
+  "markers": [
+    {
+      "id": 1,
+      "name": "Impression 1 à 4 couleurs sur pan"
+    },
+    {
+      "id": 2,
+      "name": "Doming"
+    },
+    {
+      "id": 3,
+      "name": "Impression 1 à 4 couleurs sur housse ou languette"
+    },
+    {
+      "id": 4,
+      "name": "Impression Quadri"
+    }
+  ]
 }

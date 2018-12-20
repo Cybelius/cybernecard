@@ -142,17 +142,33 @@ h3 {
     min-width: 400px;
 }
 
-/*#designer > svg, #designer {*/
-    /*position: absolute;*/
-    /*left: 0;*/
-    /*top: 0;*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-/*}*/
-
 #designer > svg {
     z-index: 1;
     overflow: visible;
+}
+
+.error-message {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    font-style: normal;
+    speak: none;
+    text-decoration: inherit;
+    text-transform: none;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    position: absolute;
+    width: auto;
+    top: 0;
+    left: 10%;
+    border-radius: 4px;
+    background-color: #D9385A;
+    font-size: 1.25rem;
+    padding: 7px;
+    font-weight: 700;
+    color: #fff;
+    animation: c 1.2s ease 0s 5 normal;
+    z-index: 99;
 }
 
 .product-selector {
@@ -170,6 +186,47 @@ h3 {
 
 .product-view-selector li {
     transition: background .2s;
+}
+
+.product-view-selector li.error:before {
+    content: "!";
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    font-style: normal;
+    speak: none;
+    text-decoration: inherit;
+    text-transform: none;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    position: absolute;
+    width: 50px;
+    bottom: 110%;
+    left: 12%;
+    border-radius: 2px;
+    background-color: #D9385A;
+    font-size: 1.25rem;
+    padding: .4em 0;
+    font-weight: 700;
+    color: #fff;
+    animation: c 1.2s ease 0s 5 normal;
+}
+
+.product-view-selector li.error:after {
+    content: "";
+    position: absolute;
+    left: calc(50% - 7px);
+    top: -.8em;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 8px solid #D9385A;
+    animation: c 1.2s ease 0s 5 normal;
+}
+
+.product-view {
+    position: relative;
 }
 
 .product-thumbnail {
@@ -195,15 +252,11 @@ h3 {
     width: 380px;
     padding: 0 1em;
     box-sizing: border-box;
-    pointer-events: none;
+    /*pointer-events: none;*/
 }
 
 .add-to-cart {
-    position: absolute;
-    width: 350px;
-    bottom: 0;
-    right: 0;
-    padding-right: 30px;
+    width: 100%;
     text-align: center;
     margin: 0 0 30px 0;
 }
@@ -221,24 +274,80 @@ h3 {
     padding-top: .5rem;
 }
 
-.description {
+.description, .product-colors,
+.product-image-size, .product-markers,
+.product-price-range {
     background: #fff;
-    box-shadow: 0 0 2px 0 rgba(0,0,0,.3);
-    padding: 20px;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, .3);
+}
+
+select {
+    display: block;
+}
+
+.product-colors-title, .product-markers-title,
+.product-image-size-title, .product-price-range-title {
+    margin-bottom: 20px;
+}
+
+.product-colors-list, .product-marker-list,
+.product-price-range-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.product-color {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    margin: .25rem 0;
+    flex: 0 0 14.28571%;
+}
+
+.btn-product-color {
+    position: relative;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: .125rem;
+    border: 2px solid transparent;
+    border-radius: 100%;
+}
+
+.btn-product-color > div {
+    border: 1px solid #999;
+}
+
+.btn-product-color > div {
+    width: 2em;
+    height: 2rem;
+    border-radius: 100%;
+    display: flex;
     overflow: hidden;
 }
 
-/*modal*/
-#products-modal {
-    /*flex: 1 0 auto;*/
-    /*min-height: 100px;*/
-    /*min-width: 100px;*/
-    /*margin-top: 10px;*/
-    /*margin-left: 5px;*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
+.product-price {
+    margin: 5px 0;
 }
 
+.btn-product-price {
+    background: #56c5ff;
+    color: #fff;
+    width: 100%;
+    border: none;
+    padding: 10px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn-product-price:hover {
+    background-color: #42c0fb;
+}
+
+/*modal*/
 .list {
     flex: 1 0 auto;
     margin: 0;
@@ -308,4 +417,28 @@ g.circles circle:hover {
 
 g.configuration-delete {
     cursor: pointer;
+}
+
+/*accordion*/
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    margin: 0;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, .3);
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+    padding: 20px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
 }
