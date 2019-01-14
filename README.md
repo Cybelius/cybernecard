@@ -12,11 +12,11 @@ Pendant le développement du projet, nous avons utilisé :
 ## DesignerTool Overview
 DesignerTool se présente en plusieurs parties : 
 - La barre latérale gauche avec les options d'imports
-- Le contre du module avec l'affiche du produit sélectionné et la possibilité d'édition
+- Le centre du module avec l'affiche du produit sélectionné et la possibilité d'édition
 - La barre latérale droite pour la sélection des options types : couleurs, prix, etc... 
 
 ## Barre latérale gauche
-La barre latérale gauche présente des boutons. Ces boutons font appel à des modals. Ces modals permettent de sélectionner un produit et/ou une image que l'on souhaite appliquer sur le produit.
+La barre latérale gauche présente deux boutons. Ces boutons font appel à des modals. Ces modals permettent de sélectionner un produit et/ou une image que l'on souhaite appliquer sur le produit.
 > La modal de sélection d'une image devra être modifiée lors de la connexion à un site marchand. En effet, l'upload se fait via un dossier en local.
 
 ## Barre latérale droite
@@ -106,12 +106,26 @@ Pour déplacer l'image, cliquez sur l'image avec le click gauche de la souris et
 Pour supprimer l'image sur le produit courant, cliquez sur la petite poubelle en bas à gauche du cadre de l'image. L'image sera alors supprimé de l'objet qui sera envoyé au site internet connecté. 
 > L'image reste disponible dans la modal d'upload
 
-### Gestion de erreurs
+### Gestion des erreurs
 Lorsqu'un utilisateur place son image en dehors du cadre d'impression, le module propose deux alertes : 
-- Un bandeau indiquant qu'il y a une erreur
-> "! L'image sélectionnée est hors cadre d'impression"
+- Un bandeau indiquant qu'il y a une erreur : **"! L'image sélectionnée est hors cadre d'impression"**
 - Un point d'exclamation sur l'image de sélection des vues du produit. 
+- Tant que des erreurs sont détectées : le bouton "Calculer le prix" ne sera pas accéssible.
 ![alt text](https://github.com/Cybelius/cybernecard/blob/master/img/screenshots/5.png)
 
+> Note importante : pour le moment, le module ne supporte pas plusieurs images sur une même vue du produit ! Chaque nouvelle sélection remplacera inévitablement l'image courante. 
 
+## La gestion de session
+Pour ajouter un niveau de sécurité, le module gère la possibilité de vérifier si une session est active ou non. Pour ce faire, le logiciel ou site internet connecté doit envoyer un fichier JSON comme suit : 
+```
+{
+  "user": {
+    "authenticated": true,
+    "email": "demo@demo.fr",
+    "agreement": true,
+    "role": "user"
+  }
+}
+```
+Ce fichier JSON permet de vérifier le type d'utilisateur, son consentement quant-à l'utilisation d'images dont il possède les droits, etc...
 
