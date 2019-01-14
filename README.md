@@ -133,4 +133,4 @@ Ce fichier JSON permet de vérifier le type d'utilisateur, son consentement quan
 Module développé dans le cadre d'un projet pédagogique en partenariat avec CESI école d'ingénieurs
 
 ## Licence information 
-Consultez le fichier LICENSE.txt pour des informations sur l'historique de ce logiciel, les termes et conditions d'utilisation, et un DÉNI DE GARANTIE.
+Consultez le fichier LICENSE.txt pour plus d'informations sur les termes et conditions d'utilisation, et un DÉNI DE GARANTIE.
