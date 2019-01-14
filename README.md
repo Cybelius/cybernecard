@@ -91,4 +91,27 @@ Image : elf
 ```
 **_Les champs ne permettent pas de personnaliser la dimension de l'objet actuellement._** 
 
-## 
+## Partie centrale - Edition d'un produit
+Lorsque vous avez sélectionné votre image à appliquer, vous avez différentes options. Vous pouvez : 
+- Resizer l'image, 
+- Déplacer l'image,
+- Supprimer l'image
+
+### Resizer & déplacer l'image
+Il suffit de placer le curseur de la souris sur le petit point en bas à droite de l'image.
+Pour déplacer l'image, cliquez sur l'image avec le click gauche de la souris et déplacez-vous pour faire bouger le cadre de l'image
+![alt text](https://github.com/Cybelius/cybernecard/blob/master/img/screenshots/2.png)
+
+### Supprimer l'image
+Pour supprimer l'image sur le produit courant, cliquez sur la petite poubelle en bas à gauche du cadre de l'image. L'image sera alors supprimé de l'objet qui sera envoyé au site internet connecté. 
+> L'image reste disponible dans la modal d'upload
+
+### Gestion de erreurs
+Lorsqu'un utilisateur place son image en dehors du cadre d'impression, le module propose deux alertes : 
+- Un bandeau indiquant qu'il y a une erreur
+> "! L'image sélectionnée est hors cadre d'impression"
+- Un point d'exclamation sur l'image de sélection des vues du produit. 
+![alt text](https://github.com/Cybelius/cybernecard/blob/master/img/screenshots/5.png)
+
+
+
