@@ -268,6 +268,14 @@ controllers.controller('DesignerController', ['$location', '$rootScope', '$route
             $scope.selectedImageIndex = color.id;
             $scope.selectedColorName = color.name;
 
+            if ($scope.response) {
+                for (var i = 0; i < $scope.response.length; i++) {
+                    if ($scope.response[i] != undefined) {
+                        $scope.response[i]['color'] = $scope.selectedColorName;
+                    }
+                }
+            }
+
         };
 
         /**
@@ -300,7 +308,7 @@ controllers.controller('DesignerController', ['$location', '$rootScope', '$route
                 'id': $scope.lastIndex,
                 'product': $scope.product.name,
                 'price': $scope.selectedPriceObj,
-                'marker' : $scope.selectedMarker,
+                'marker': $scope.selectedMarker,
                 'color': $scope.product.colors[$scope.selectedImageIndex].name,
                 'index_image': $scope.product.colors[$scope.selectedImageIndex].images[$scope.lastIndex].id,
                 'images': $scope.imagesSelectedForProductIndex
@@ -470,7 +478,7 @@ controllers.controller('DesignerController', ['$location', '$rootScope', '$route
             var i;
 
             for (i = 0; i < acc.length; i++) {
-                acc[i].addEventListener("click", function() {
+                acc[i].addEventListener("click", function () {
                     /* Toggle between adding and removing the "active" class,
                     to highlight the button that controls the panel */
                     this.classList.toggle("active");

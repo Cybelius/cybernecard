@@ -3,18 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ee3be41e-a9e1-46e9-ab36-28e9d81fb3d3" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/parapluie.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/parapluie.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/tshirt.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/tshirt.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/designer.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/designer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/designer/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/designer/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/designer/DesignerTool.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/designer/DesignerTool.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/designer/Products.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/designer/Products.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/designer/Service.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/designer/Service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/designer/Upload.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/designer/Upload.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/designer.html" beforeDir="false" afterPath="$PROJECT_DIR$/designer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/polo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/products-modal.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/products-modal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/upload-modal.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/upload-modal.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -31,8 +20,8 @@
       <file leaf-file-name="designer.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/designer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1294">
-              <caret line="92" column="97" lean-forward="true" selection-start-line="92" selection-start-column="97" selection-end-line="92" selection-end-column="97" />
+            <state relative-caret-position="367">
+              <caret line="106" column="144" lean-forward="true" selection-start-line="106" selection-start-column="144" selection-end-line="106" selection-end-column="144" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -44,20 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DesignerTool.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DesignerTool.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/designer/DesignerTool.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-389">
-              <caret line="81" column="11" lean-forward="true" selection-start-line="81" selection-start-column="11" selection-end-line="81" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="designer.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/css/designer.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1137">
-              <caret line="316" column="34" lean-forward="true" selection-start-line="316" selection-start-column="34" selection-end-line="316" selection-end-column="34" />
+            <state relative-caret-position="235">
+              <caret line="273" column="79" selection-start-line="273" selection-start-column="79" selection-end-line="273" selection-end-column="79" />
             </state>
           </provider>
         </entry>
@@ -65,17 +45,26 @@
       <file leaf-file-name="tshirt.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/tshirt.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4304">
-              <caret line="311" column="5" lean-forward="true" selection-start-line="311" selection-start-column="5" selection-end-line="311" selection-end-column="5" />
+            <state relative-caret-position="240">
+              <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parapluie.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/api/parapluie.json">
+      <file leaf-file-name="designer.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/css/designer.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+            <state relative-caret-position="6030">
+              <caret line="402" column="24" selection-start-line="402" selection-start-column="24" selection-end-line="402" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/designer/App.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -171,8 +160,8 @@
         <option value="$PROJECT_DIR$/assets/designer/Products.js" />
         <option value="$PROJECT_DIR$/api/tshirt.json" />
         <option value="$PROJECT_DIR$/designer.html" />
-        <option value="$PROJECT_DIR$/assets/designer/DesignerTool.js" />
         <option value="$PROJECT_DIR$/api/parapluie.json" />
+        <option value="$PROJECT_DIR$/assets/designer/DesignerTool.js" />
       </list>
     </option>
   </component>
@@ -185,11 +174,10 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1920" />
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1920" />
-    <option name="height" value="1057" />
+    <option name="width" value="1400" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -197,6 +185,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -229,18 +218,12 @@
             <path>
               <item name="allianceinformatique" type="b2602c69:ProjectViewProjectNode" />
               <item name="allianceinformatique" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="allianceinformatique" type="b2602c69:ProjectViewProjectNode" />
-              <item name="allianceinformatique" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -344,22 +327,24 @@
       <workItem from="1545230883752" duration="2979000" />
       <workItem from="1545242903451" duration="13472000" />
       <workItem from="1545293708033" duration="8398000" />
-      <workItem from="1545334624801" duration="8698000" />
+      <workItem from="1545334624801" duration="9022000" />
+      <workItem from="1547030026708" duration="400000" />
+      <workItem from="1547480230111" duration="1868000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="332676000" />
+    <option name="totallyTimeSpent" value="335268000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1920" y="23" width="1920" height="1057" extended-state="6" />
+    <frame x="0" y="23" width="1400" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19010006" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2617839" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32977587" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32870865" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32760897" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -472,20 +457,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/designer/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="31" column="27" lean-forward="true" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/designer/Upload.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="n#style#0;n#li#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -524,10 +499,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/img/p2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/parapluie.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/designer.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6030">
+          <caret line="402" column="24" selection-start-line="402" selection-start-column="24" selection-end-line="402" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/designer/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/tshirt.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/designer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1294">
-          <caret line="92" column="97" lean-forward="true" selection-start-line="92" selection-start-column="97" selection-end-line="92" selection-end-column="97" />
+        <state relative-caret-position="367">
+          <caret line="106" column="144" lean-forward="true" selection-start-line="106" selection-start-column="144" selection-end-line="106" selection-end-column="144" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -538,34 +544,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/img/p2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/designer/DesignerTool.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-389">
-          <caret line="81" column="11" lean-forward="true" selection-start-line="81" selection-start-column="11" selection-end-line="81" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/designer.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1137">
-          <caret line="316" column="34" lean-forward="true" selection-start-line="316" selection-start-column="34" selection-end-line="316" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/tshirt.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4304">
-          <caret line="311" column="5" lean-forward="true" selection-start-line="311" selection-start-column="5" selection-end-line="311" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api/parapluie.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+        <state relative-caret-position="235">
+          <caret line="273" column="79" selection-start-line="273" selection-start-column="79" selection-end-line="273" selection-end-column="79" />
         </state>
       </provider>
     </entry>
